@@ -3,24 +3,27 @@ package com.github.curriculeon;
 import javax.naming.OperationNotSupportedException;
 
 public class KeyValue<KeyType, ValueType> {
+    private KeyType key;
+    private ValueType value;
     public KeyValue(KeyType key, ValueType value) {
-        // TODO - Implement method
+        this.key = key;
+        this.value = value;
     }
 
     public KeyType getKey() {
-        return null; // TODO - Implement method
+        return this.key;
 
     }
 
     public ValueType getValue() {
-        return null; // TODO - Implement method
+        return this.value;
     }
 
     public void setKey(KeyType key) {
-        // TODO - Implement method
+        this.key = key;
     }
 
     public void setValue(ValueType value) {
-        // TODO - Implement method
+        this.value = value;
     }
 }
