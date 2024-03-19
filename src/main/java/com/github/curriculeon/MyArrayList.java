@@ -32,21 +32,23 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public void remove(final int indexOfObjectToRemove) {
-        int startingIndex = indexOfObjectToRemove <= 0 ? 1 : indexOfObjectToRemove;
-        int destPos = elements.length - 1;
-        int rightLength = destPos - indexOfObjectToRemove;
-        int leftLength = indexOfObjectToRemove - startingIndex + 1;
+        final int rightCopyStartIndex = 0;
+        int finalArrayLength = elements.length - 1;
+        int rightLength = finalArrayLength - indexOfObjectToRemove;
+        int leftLength = indexOfObjectToRemove <= 0 ? 1 : indexOfObjectToRemove;
 
         SomeType[] leftCopy = Arrays.copyOf(elements, leftLength);
         SomeType[] rightCopy = Arrays.copyOf(elements, rightLength);
-        SomeType[] finalCopy = Arrays.copyOf(elements, destPos - 1);
-        System.arraycopy(elements, indexOfObjectToRemove + 1, rightCopy, destPos, rightLength);
+        SomeType[] finalCopy = Arrays.copyOf(elements, finalArrayLength);
+        System.arraycopy(elements, indexOfObjectToRemove + 1, rightCopy, rightCopyStartIndex, rightLength);
 
         for(int i = 0; i < indexOfObjectToRemove; i++){
             finalCopy[i] = leftCopy[i];
         }
-        for(int i = indexOfObjectToRemove + 1; i < finalCopy.length; i++){
-            finalCopy[i] = rightCopy[i - indexOfObjectToRemove];
+        if(indexOfObjectToRemove < elements.length - 1) {
+            for (int i = indexOfObjectToRemove; i < finalCopy.length; i++) {
+                finalCopy[i] = rightCopy[i - indexOfObjectToRemove];
+            }
         }
         this.elements = finalCopy;
     }
