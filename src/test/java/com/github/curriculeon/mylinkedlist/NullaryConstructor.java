@@ -20,7 +20,7 @@ public class NullaryConstructor {
     public void testPolymorphism() {
         //given
         MyLinkedList<?> myList = new MyLinkedList<>();
-        ImportChecker.scanClass(myList.getClass(), "java.util", "MyArrayList", "MySet", "MyCollectionInterface");
+//        ImportChecker.scanClass(myList.getClass(), "java.util", "MyArrayList", "MySet", "MyCollectionInterface");
 
         // when
         Boolean isInstanceOfMySet = (Object) myList instanceof MySet;

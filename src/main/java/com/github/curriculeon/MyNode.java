@@ -5,6 +5,11 @@ public class MyNode<SomeType> {
     private MyNode<SomeType> next;
 
     public MyNode() {
+
+    }
+    public MyNode(SomeType data){
+        this.data = data;
+        this.next = null;
     }
 
     public MyNode(SomeType data, MyNode<SomeType> next) {

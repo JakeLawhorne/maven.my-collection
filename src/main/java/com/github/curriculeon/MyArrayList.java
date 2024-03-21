@@ -33,9 +33,9 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType>{
     @Override
     public void remove(final int indexOfObjectToRemove) {
         final int rightCopyStartIndex = 0;
-        int finalArrayLength = elements.length - 1;
-        int rightLength = finalArrayLength - indexOfObjectToRemove;
-        int leftLength = indexOfObjectToRemove <= 0 ? 1 : indexOfObjectToRemove;
+        final int finalArrayLength = elements.length - 1;
+        final int rightLength = finalArrayLength - indexOfObjectToRemove;
+        final int leftLength = indexOfObjectToRemove <= 0 ? 1 : indexOfObjectToRemove;
 
         SomeType[] leftCopy = Arrays.copyOf(elements, leftLength);
         SomeType[] rightCopy = Arrays.copyOf(elements, rightLength);
@@ -78,5 +78,8 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType>{
     @Override
     public Iterator iterator() {
         return Arrays.stream(elements).iterator();
+    }
+    public SomeType[] getElements(){
+        return this.elements;
     }
 }
