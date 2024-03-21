@@ -41,6 +41,16 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public SomeType get(int indexOfElement) {
+        int count = 0;
+        Iterator<SomeType> itr = new MyLinkedListIterator();
+        while(itr.hasNext()){
+            if(count == indexOfElement){
+                return itr.next();
+            }else{
+                itr.next();
+                count++;
+            }
+        }
         return null;
     }
 
@@ -59,7 +69,13 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public Integer size() {
-        return null;
+        int count = 0;
+        Iterator<SomeType> itr = new MyLinkedListIterator();
+        while(itr.hasNext()){
+            itr.next();
+            count++;
+        }
+        return count;
     }
 
     @Override

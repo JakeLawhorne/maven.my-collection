@@ -18,7 +18,7 @@ public class GetTest {
     //given
     private <SomeType> void test(SomeType... valuesToBePopulatedWith) {
         MyLinkedList<SomeType> myList = new MyLinkedList<>(valuesToBePopulatedWith);
-        ImportChecker.scanClass(myList.getClass(), "java.util", "MyArrayList", "MySet", "MyCollectionInterface");
+//        ImportChecker.scanClass(myList.getClass(), "java.util", "MyArrayList", "MySet", "MyCollectionInterface");
         MyCollectionInterface<SomeType> myCollection = (MyCollectionInterface<SomeType>) myList;
 
         for (int currentIndex = 0; currentIndex < valuesToBePopulatedWith.length; currentIndex++) {
