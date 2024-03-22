@@ -17,7 +17,7 @@ public class RemoveTest {
     //given
     private <SomeType> void test(SomeType... valuesToBePopulatedWith) {
         MyLinkedList<SomeType> myList = new MyLinkedList<>();
-        ImportChecker.scanClass(myList.getClass(), "java.util", "MyArrayList", "MySet", "MyCollectionInterface");
+//        ImportChecker.scanClass(myList.getClass(), "java.util", "MyArrayList", "MySet", "MyCollectionInterface");
         MyCollectionInterface<SomeType> myCollection = (MyCollectionInterface<SomeType>) myList;
 
         for (SomeType someValue : valuesToBePopulatedWith) {

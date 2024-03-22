@@ -31,11 +31,40 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public void remove(SomeType objectToRemove) {
-
+        if(head.getData() == objectToRemove){
+            head = head.getNext();
+            return;
+        }
+        MyNode<SomeType> temp = head;
+        boolean found = false;
+        while(!found){
+            if(temp.getNext().getData() == objectToRemove){
+                temp.setNext(temp.getNext().getNext());
+                found = true;
+        }else{
+                temp = temp.getNext();
+            }
+        }
     }
 
     @Override
     public void remove(int indexOfObjectToRemove) {
+        if(indexOfObjectToRemove == 0){
+            head = head.getNext();
+            return;
+        }
+        MyNode<SomeType> temp = head;
+        int counter = 1;
+        boolean found = false;
+        while(!found){
+            if(counter == indexOfObjectToRemove){
+                temp.setNext(temp.getNext().getNext());
+                found = true;
+            }else{
+                temp = temp.getNext();
+                counter++;
+            }
+        }
 
     }
 
